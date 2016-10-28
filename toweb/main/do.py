@@ -1,7 +1,8 @@
 # coding:utf-8
 import pymongo
 import settings
-
+import uuid
+import base64
 
 db = settings.TORNADO_SETTINGS['db']
 db = db['blogd']
@@ -79,8 +80,6 @@ def do_update_Article(uuid, title, content, tag, puplishd, date_time):
 
 
 def get_uuid():
-    import uuid
-    import base64
     return base64.b64encode(uuid.uuid4().bytes + uuid.uuid4().bytes).replace('+', 'B')
 
 
