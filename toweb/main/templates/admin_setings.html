@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link type="text/css" class="ui" href="{{ static_url("css/semantic.min.css") }}" rel="stylesheet" >
+    <link type="text/css" href="{{ static_url("css/breadcrumb.min.css") }}" rel="stylesheet" >
+    <script src="{{ static_url("js/semantic.min.js")}}"> </script>
+    <script src="{{ static_url("js/jquery.min.js")}}"> </script>
+      <script src="{{ static_url("js/form.js")}}"> </script>
+    <meta charset="utf-8">
+    <title>修改账号/密码</title>
+      <style type="text/css">
+      body {
+        background-color: #DADADA;
+      }
+      body > .grid {
+        height: 100%;
+      }
+      .image {
+        margin-top: -100px;
+      }
+      .column {
+        max-width: 450px;
+      }
+    </style>
+    <script>
+   $(document)
+     .ready(function() {
+       $('.ui.form')
+         .form({
+           fields: {
+             username: {
+               identifier  : 'username',
+               rules: [
+                 {
+                   type   : 'empty',
+                   prompt : '请输入新用户名'
+                 }
+               ]
+             },
+             password: {
+               identifier  : 'password',
+               rules: [
+                 {
+                   type   : 'empty',
+                   prompt : '请输入新密码'
+                 }
+               ]
+             }
+           }
+         })
+       ;
+     })
+   ;
+   </script>
+  </head>
+  <body>
+    <div class="ui middle aligned center aligned grid">
+      <div class="column">
+          <h2 class="ui teal  header">
+        <div class="content">
+            修改账号/密码
+        </div>
+</h2>
+    <form class="ui large form" method="post" action="">
+       {% module xsrf_form_html() %}
+      <div class="ui stacked segment">
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="user icon"></i>
+            <input type="text" name="username" placeholder="新账号">
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="lock icon"></i>
+            <input type="password" name="password" placeholder="新密码">
+          </div>
+        </div>
+
+        <div class="ui fluid large teal submit button">保存设置</div>
+      </div>
+
+      <div class="ui error message"></div>
+
+    </form>
+  </div>
+    </div>
+  </body>
+</html>

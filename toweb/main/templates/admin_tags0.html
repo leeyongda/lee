@@ -1,0 +1,78 @@
+{% extends "admin.html" %}
+{% block title %}
+  <h1>
+    分类管理
+    <small>添加>>编辑>>删除</small>
+  </h1>
+{% end %}
+  {% block content %}
+    <div class="ui vertical segment">
+    <div class="ui container segment">
+<table class="ui celled table" id="mytable" name="myclass" >
+    <thead>
+        <tr>
+        <th>名称</th>
+        <th>添加时间</th>
+        <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for sort in sort_list %}
+        <tr id="{{sort['uuid']}}">
+            <td ><a href="#" style="display:block" name="name" id="{{sort['uuid']}}" OnClick="">{{sort['name']}}</a></td>
+            <td><a href="#" style="display:block" name="alias" id="{{sort['uuid']}}" OnClick="">{{sort['date_time']}}</a></td>
+        <td> <a onclick="#" href="/admin/blog/update_Article?get_uid="><button type="button" class="btn btn-success">编辑</button></a>
+         <a onclick="#" href="/admin/blog/Del_Article?del_uid="><button type="button" class="btn btn-danger">删除</button></a>
+       </td>
+            <!-- <td><a href="javascript:void(0);" onclick="mytable(this)" name = "aa">编辑</a>||<a href="/admin/blog/del_tag?del_id={{sort['uuid']}}">删除</a></td> -->
+        </tr>
+        {% end %}
+        <span>总共有{{count}}记录</span>
+    </tbody>
+</table>
+</div>
+<div class="ui container segment">
+<form method="" class="ui large form" action="/admin/blog/add_tag">
+    <div class="ui form">
+      <div class="field">
+        <label>添加文章分类</label>
+            <input name="name" />
+            <br><br>
+            <button type="button" class="btn btn-success">添加</button>
+            <!-- <input class="btn" type="submit" style="width:80px;margin-left:40px;" value="添加"> -->
+        </div>
+</div>
+</div>
+</form>
+</div>
+
+{%end%}
+{% block footer %}
+<script type="text/javascript">
+function mytable(t){
+  $('.ui.modal')
+    .modal('show')
+ tr_id=$(t).parent().parent().attr("id");
+  $("#uuid").val(tr_id);//赋值
+};
+
+function hello() {
+  $('.ui.modal')
+    .modal('show')
+  ;};
+
+  function formSubmit(){
+      var strText= document.getElementById("name").value;
+
+          if(strText=="" || strText==null)
+          {
+              alert("文章分类不能为空");
+              return;
+          }
+      else{
+      document.getElementById("form1").submit();}
+  }
+
+</script>
+
+{%end%}

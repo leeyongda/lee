@@ -1,0 +1,57 @@
+{% extends "admin.html" %} {% block title %}
+<h1>
+    推送管理
+    <small>修改用户</small>
+  </h1> {% end %} {% block content %}
+<div class="ui vertical segment">
+
+    <div class="ui container segment">
+        <form id="form1" class="ui large form" action="/admin/blog/Update_Student_info" method="post">
+            <div class="ui form">
+                <div class="field">
+                    <input type="hidden" name="get_uid" value="{{info['uuid']}}" />
+                    <label>学号</label>
+                    <input name="xh" maxlength="8" value="{{info['xh']}}" />
+                    <label>姓名</label>
+                    <input name="name" value="{{info['name']}}" />
+                    <label>密码</label>
+                    <input type="password" name="mm" value="{{info['mm']}}" />
+                    <label>推送地址</label>
+                    <input type="email" name="email" value="{{info['pup_add']}}" />
+                    <br><br>
+                    <button type="button" class="btn btn-success" onclick="formSubmit();">保存</button>
+                    <!-- <input class="btn" type="submit" style="width:80px;margin-left:40px;" value="添加"> -->
+                </div>
+            </div>
+    </div>
+    </form>
+</div>
+
+{%end%} {% block footer %}
+<script type="text/javascript">
+    function mytable(t) {
+        $('.ui.modal')
+            .modal('show')
+        tr_id = $(t).parent().parent().attr("id");
+        $("#uuid").val(tr_id); //赋值
+    };
+
+    function hello() {
+        $('.ui.modal')
+            .modal('show');
+    };
+
+    function formSubmit() {
+        // var strText = document.getElementById("name").value;
+        document.getElementById("form1").submit();
+        // if (strText == "" || strText == null) {
+        //     alert("文章分类不能为空");
+        //     return;
+        // } else {
+        //     document.getElementById("form1").submit();
+        // }
+    }
+
+</script>
+
+{%end%}

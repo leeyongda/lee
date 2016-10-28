@@ -1,0 +1,85 @@
+{% extends "admin.html" %}
+{% block title %}
+  <h1>
+    晨跑推送管理
+    <small>添加>>编辑>>删除</small>
+  </h1>
+{% end %}
+  {% block content %}
+    <div class="ui vertical segment">
+    <div class="ui container segment">
+<table class="ui celled table" id="mytable" name="myclass" >
+    <thead>
+        <tr>
+        <th>学号</th>
+        <th>姓名</th>
+        <th>密码</th>
+        <th>推送地址</th>
+        <th>晨跑次数</th>
+        <th>更新时间</th>
+        <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+      {% for info in info_list %}
+        <tr id="{{info['uuid']}}">
+            <td ><a href="#" style="display:block" name="xh"></a>{{info['xh']}}</td>
+            <td><a href="#" style="display:block" name="name"></a>{{info['name']}}</td>
+              <td>******</td>
+                <td><a href="#" style="display:block" name="email"></a>{{info['pup_add']}}</td>
+                <td><a href="#" style="display:block" name="count" ></a>{{info['count']}}</td>
+                  <td><a href="#" style="display:block" name="date_time" ></a>{{info['date_time']}}</td>
+        <td> <a onclick="#" href="/admin/blog/Update_Student_info?get_uid={{info['uuid']}}"><button type="button" class="btn btn-success">修改</button></a>
+         <a onclick="#" href="/admin/blog/Del_Student_info?del_uid={{info['uuid']}}"><button type="button" class="btn btn-danger">删除</button></a>
+       </td>
+        </tr>
+{%end%}
+        <span>总共有记录</span>
+    </tbody>
+</table>
+</div>
+<!-- <div class="ui container segment">
+<form method="" class="ui large form" action="/admin/blog/add_tag">
+    <div class="ui form">
+      <div class="field">
+        <label>添加用户</label>
+            <input name="name" />
+            <br><br>
+            <button type="button" class="btn btn-success">添加</button>
+
+        </div>
+</div>
+</div>
+</form>
+</div> -->
+
+{%end%}
+{% block footer %}
+<script type="text/javascript">
+function mytable(t){
+  $('.ui.modal')
+    .modal('show')
+ tr_id=$(t).parent().parent().attr("id");
+  $("#uuid").val(tr_id);//赋值
+};
+
+function hello() {
+  $('.ui.modal')
+    .modal('show')
+  ;};
+
+  function formSubmit(){
+      var strText= document.getElementById("name").value;
+
+          if(strText=="" || strText==null)
+          {
+              alert("文章分类不能为空");
+              return;
+          }
+      else{
+      document.getElementById("form1").submit();}
+  }
+
+</script>
+
+{%end%}

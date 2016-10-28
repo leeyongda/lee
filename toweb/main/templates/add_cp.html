@@ -1,0 +1,58 @@
+{% extends "admin.html" %} {% block title %}
+<h1>
+    推送管理
+    <small>添加用户</small>
+  </h1>
+{% end %} {% block content %}
+<div class="ui vertical segment">
+
+    <div class="ui container segment">
+        <form id ="form1" class="ui large form" action="/admin/blog/add_cp" method="post">
+            <div class="ui form">
+                <div class="field">
+                    <label>学号</label>
+                    <input name="xh" maxlength="8"/>
+                    <label>姓名</label>
+                    <input name="name" />
+                    <label>密码</label>
+                    <input type="password" name="mm" />
+                    <label>推送地址</label>
+                    <input type="email"name="email" />
+
+                    <br><br>
+                    <button type="button" class="btn btn-success"  onclick="formSubmit();">添加</button>
+                    <!-- <input class="btn" type="submit" style="width:80px;margin-left:40px;" value="添加"> -->
+                </div>
+            </div>
+    </div>
+    </form>
+</div>
+
+{%end%} {% block footer %}
+<script type="text/javascript">
+    function mytable(t) {
+        $('.ui.modal')
+            .modal('show')
+        tr_id = $(t).parent().parent().attr("id");
+        $("#uuid").val(tr_id); //赋值
+    };
+
+    function hello() {
+        $('.ui.modal')
+            .modal('show');
+    };
+
+    function formSubmit() {
+        // var strText = document.getElementById("name").value;
+  document.getElementById("form1").submit();
+        // if (strText == "" || strText == null) {
+        //     alert("文章分类不能为空");
+        //     return;
+        // } else {
+        //     document.getElementById("form1").submit();
+        // }
+    }
+
+</script>
+
+{%end%}

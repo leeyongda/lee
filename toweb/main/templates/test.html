@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Blog</title>
+
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" class="ui" href="../static/css/semantic.min.css" rel="stylesheet">
+    <link href="../static/css/blog.css" rel="stylesheet">
+    <script src="{{static_url("js/jquery.min.js")}}"></script>
+    <script src="{{static_url("js/jquery.more.js")}}"></script>
+
+    <script type="text/javascript">
+        $(function() {
+            $('#more').more({
+                'address': 'data'
+            });
+        });
+
+    </script>
+    <style media="screen">
+        body {
+            background: #ebebeb;
+        }
+
+        a {
+            color: #555555;
+            text-decoration: none;
+        }
+
+        .article-list .have-img .wrap-img {
+            float: right;
+            width: 100px;
+            height: 100px;
+        }
+
+        img {
+            max-width: 100%;
+            width: auto\9;
+            height: auto;
+            vertical-align: middle;
+            border: 0;
+            -ms-interpolation-mode: bicubic;
+        }
+
+        .article-list>li {
+            position: relative;
+            width: 100%;
+            padding-right: 2px;
+            padding-bottom: 17px;
+            margin: 0 0 17px;
+            border-bottom: 1px dashed #d9d9d9;
+            box-sizing: border-box;
+            word-wrap: break-word;
+        }
+
+        .article-list {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        li {
+            line-height: 20px;
+        }
+
+        li {
+            display: list-item;
+            text-align: -webkit-match-parent;
+        }
+
+        .blue-link {
+            color: #4094c7;
+        }
+
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 1.5;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="ui inverted very vertical segment">
+        <h1 style="text-align:center;color:white;">Coding Blog</h1>
+    </div>
+
+    <div class="container">
+
+        <div class="blog-header">
+            <a href="#" class="ui red label" target="_blank">Python</a>
+            <a href="#" class="ui orange label" target="_blank">Java</a>
+            <a href="#" class="ui yellow label" target="_blank">Html</a>
+            <a href="#" class="ui olive label" target="_blank">Js</a>
+            <a href="#" class="ui green label" target="_blank">xxx</a>
+            <a href="#" class="ui teal label" target="_blank">xxxx</a>
+            <!-- <h1 class="blog-title">coding Blog</h1>
+        <p class="lead blog-description"></p> -->
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-8 blog-main">
+                <div class="main">
+                    <div class="ui container segment">
+                        <div id="more">
+                            <div class="single_item">
+                                <ul class="article-list thumbnails">
+                                    <li class="have-img">
+                                        <a class="wrap-img" href="#"></a>
+                                        <div>
+                                            <p class="list-top">
+                                                <a class="author-name blue-link" target="_blank" href="#">一笑奈何</a>
+                                                <em>·</em>
+                                                <span class="date_time"></span>
+                                            </p>
+                                            <h4 class="title"></h4>
+                                            <div class="list-footer"></div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <a href="javascript:;" class="get_more">::点击加载更多内容::</a>
+                        </div>
+                    </div>
+                </div>
+                &nbsp;
+            </div>
+            <!-- /.blog-main -->
+
+            <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+                <div class="sidebar-module">
+                    <div class="ui category search" style="text-align:center;">
+                        <div class="ui icon input">
+                            <input class="prompt" type="text" placeholder="搜索...">
+                            <i class="search icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-module sidebar-module-inset">
+                    <h4>About</h4>
+                    <p>Coding
+                        <em></em> 人生苦短，我用Python!
+                    </p>
+                </div>
+                <div class="sidebar-module sidebar-module-inset">
+                    <h4>文章归档</h4>
+                    <ol class="list-unstyled">
+                        <!-- <li><a href="#">March 2014</a></li>
+              <li><a href="#">February 2014</a></li>
+              <li><a href="#">January 2014</a></li>
+              <li><a href="#">December 2013</a></li>
+              <li><a href="#">November 2013</a></li>
+              <li><a href="#">October 2013</a></li>
+              <li><a href="#">September 2013</a></li>
+              <li><a href="#">August 2013</a></li>
+              <li><a href="#">July 2013</a></li>
+              <li><a href="#">June 2013</a></li>
+              <li><a href="#">May 2013</a></li>
+              <li><a href="#">April 2013</a></li> -->
+                    </ol>
+                </div>
+
+                <div class="sidebar-module sidebar-module-inset">
+                    <h4 class="title">友情链接</h4>
+                    <div class="content tag-cloud">
+                        <a href="/tag/laravel-5-2/">Python</a>
+                        <a href="/tag/spark/">Java</a>
+                        <a href="/tag/jing-xiang/">Githuub</a>
+                        <a href="/tag/xin-ban-ben-fa-bu/">Linux</a>
+                        <a href="/tag-cloud/">...</a>
+                    </div>
+                </div>
+                <div class="sidebar-module">
+
+                    <!-- <h4>友情链接</h4>
+            <ol class="list-unstyled">
+              <li><a href="#">GitHub</a></li>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">Facebook</a></li>
+            </ol> -->
+                </div>
+            </div>
+            <!-- /.blog-sidebar -->
+
+        </div>
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <div class="blog-footer">
+        <p>Coding blog by
+            <a href="">@Coding</a>.</p>
+        <p>
+            <a href="#">回到头部</a>
+        </p>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <!-- <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/docs.min.js"></script> -->
+
+</body>
+
+</html>

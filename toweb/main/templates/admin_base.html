@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <title>后台管理</title>
+      <link type="text/css" class="ui" href="{{ static_url("css/semantic.min.css") }}" rel="stylesheet" >
+      <script src="{{ static_url("js/jquery.min.js")}}"> </script>
+  <script src="{{ static_url("js/semantic.min.js")}}"> </script>
+{% block js%}
+{% end %}
+  </head>
+  <body>
+    <div>
+    <div>
+<div class="ui vertical visible sidebar left inverted vertical menu" id="toc">
+<div class="item">
+  <a class="ui logo icon image" href="/">
+    <!-- <img src="/images/logo.png"> -->
+  </a>
+  <a href="/"><h2><b>Coding Blog <br>后台管理系统</b></h2></a>
+<br>
+    <div class="active section"><a href ="/admin/logout" name = "logout"><h3>退出登陆</h3></a></div>
+</div>
+<a class="item" href="/admin/getting-info.html">
+  <b>Blog 简介</b>
+</a>
+<a class="item">
+  <b>Blog V1.0</b>
+</a>
+<div class="item">
+  <div class="header">文章</div>
+  <div class="menu">
+
+      <a class="item" href="/admin/blog/Add_Article">添加文章 </a>
+
+      <a class="item" href="/admin/blog/Edit_Article">修改文章 </a>
+
+      <a class="item" href="/admin/blog/Del_Article">删除文章 </a>
+
+  </div>
+</div>
+<div class="item">
+  <div class="header">分类</div>
+  <div class="menu">
+      <a class="item" href="/admin/blog/tags">文章分类管理 </a>
+
+      <!-- <a class="item" href="/usage/del_class.html">删除分类 </a> -->
+
+  </div>
+</div>
+
+<div class="item">
+  <div class="active  header">设置</div>
+  <div class="menu">
+      <a class="item" href="/admin/blog/settings">修改账号/密码</a>
+
+      <a class="item" href="/admin/p_setings.html">个性化设置 </a>
+
+  </div>
+</div>
+<div class="item">
+  <div class=" header">联系方式</div>
+  <div class="menu">
+
+      <a class="item" href="#">QQ:123456 </a>
+
+      <a class="item" href="#">E-mail:123456@QQ.com </a>
+
+  </div>
+</div>
+        </div>
+      </div>
+      {% block body %}
+      {% end %}
+    </div>
+  </body>
+</html>

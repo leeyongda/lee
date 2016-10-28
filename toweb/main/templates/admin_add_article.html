@@ -1,0 +1,92 @@
+{% extends 'admin_base.html' %}
+{% block js%}
+<link type="text/css" href="{{ static_url("css/lanrenzhijia.css") }}" rel="stylesheet" >
+<link rel="stylesheet" href="{{ static_url("css/styles.css") }}" media="screen" title="no title">
+<script src="{{ static_url("js/jquery.min.js")}}"> </script>
+<script src="{{ static_url("js/modal.js")}}"> </script>
+<script src="{{ static_url("js/semantic.min.js")}}"> </script>
+<script src="{{ static_url("js/jquery.filedrop.js")}}"> </script>
+<script src="{{ static_url("js/script.js")}}"> </script>
+
+<script type="text/javascript">
+function formSubmit(){
+  document.getElementById("form1").submit();
+
+}
+</script>
+<script>
+$('#select')
+  .dropdown()
+;
+function hello() {
+$('.ui.modal')
+  .modal('show')
+;}
+
+function sel(){
+var myselect = document.getElementById("select");
+var index = myselect.selectedIndex;
+alert(myselect.options[index].value);
+
+}
+</script>
+{% end %}
+{% block body %}
+
+    <div class="ui vertical segment">
+    <div class="ui container segment">
+
+            <h1 class="ui header">上传图片</h1>
+<div id="dropbox">
+			<span class="message"><h2>拖拽图片上传！</h2></span>
+		</div>
+
+
+    <h1 class="ui header">发布文章</h1>
+    <form id="form1" method="post">
+      {% raw xsrf_form_html() %}
+    <div class="ui form">
+        <div class="field">
+          <label>文章标题</label>
+          <input type='text' name="title" />
+        </div>
+
+
+          <div class="field">
+            <label>文章分类</label>
+<select name="gender" class="ui dropdown" id="select">
+  {% for op in options %}
+  <option value="{{op}}" >{{op}}</option>
+  {% end %}
+</select>
+  </div>
+ <a href="/admin/blog/Classes" class="btn btn-mini tip-right" title="添加分类" target="_blank">添加文章分类</a>
+ <br>
+  <br>
+  <div class="field">
+    <label>文章内容</label><a href="/admin/blog/Editor" target="_blank">使用markdown全屏预览编辑器</a>
+    <br>
+     <br>
+    <textarea name="conter">使用markdown全屏预览编辑器</textarea>
+  </div>
+<div class="ui fluid large teal submit button" onclick="hello()">发表</div>
+<div class="ui modal">
+  <div class="header">
+    发布文章
+  </div>
+  <div class="actions">
+    <div class="ui black deny button">
+     否
+    </div>
+    <div class="ui positive right labeled icon button" onclick="formSubmit()">
+      是
+      <i class="checkmark icon"></i>
+    </div>
+  </div>
+</div>
+</div>
+</form>
+</div>
+</div>
+
+{% end %}

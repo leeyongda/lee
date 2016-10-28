@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<meta charset="utf-8">
+<title>
+Coding Blog
+</title>
+<link type="text/css" class="ui" href="{{ static_url("css/semantic.min.css") }}" rel="stylesheet" >
+<link type="text/css" href="{{ static_url("css/breadcrumb.min.css") }}" rel="stylesheet" >
+<link type="text/css" href="{{ static_url("css/icon.min.css") }}" rel="stylesheet" >
+    <link rel="stylesheet" href="{{ static_url("css/editormd.min.css")}} "/>
+<!-- <link type="text/css" href="{{ static_url("css/code.css") }}" rel="stylesheet" > -->
+<script src="{{ static_url("js/editormd.min.js")}}"> </script>
+<link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_dark.min.css">
+<link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_dark.min.css">
+<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+<script src="{{ static_url("js/python.js")}}"> </script>
+
+<script src="{{ static_url("js/jquery.min.js")}}"> </script>
+<script src="{{ static_url("js/semantic.min.js")}}"> </script>
+
+<script type="text/javascript">
+//
+$(document).ready(function() {
+  $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
+});
+
+</script>
+<style>
+.header{
+  margin-left: : 120px;
+}
+</style>
+</head>
+<body>
+<div class="ui inverted very vertical segment">
+<h1 style="text-align:center">Coding Blog</h1>
+<h2></h2>
+
+</div>
+<div class="ui vertical segment">
+<div class="ui huge breadcrumb header">
+  <a class="section">首页</a>
+  <i class="right chevron icon divider"></i>
+  <a class="section">文章</a>
+  <i class="right chevron icon divider"></i>
+  <div class="active section"><a href ="/admin/login">登陆</a></div>
+</div>
+</div>
+
+<div class="ui vertical segment">
+
+<div class="ui container segment">
+<h1 class="ui header">{{blog['title']}}</h1>
+<p>
+{%raw blog['content']%}
+</p>
+<a target="_blank" href="/page/uid={{blog['uuid']}}"><button type="button" name="button" class="ui inverted blue button">阅读全文</button></a>
+</div>
+
+</div>
+
+
+
+<div class="ui black inverted vertical footer segment">
+  <div class="ui center aligned container">
+    <div class="ui stackable inverted grid">
+      <div class="three wide column">
+        <h4 class="ui inverted header">Community</h4>
+        <div class="ui inverted link list">
+
+          <a class="item" href="/cla.html" target="_blank">CLA</a>
+        </div>
+      </div>
+      <div class="three wide column">
+        <h4 class="ui inverted header">Network</h4>
+        <div class="ui inverted link list">
+          <!-- <a class="item" href="" target="_blank">Python</a>
+          <a class="item" href="" target="_blank">Python</a>
+          <a class="item" href="">Python</a> -->
+          <a class="item" href="">Python</a>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="ui inverted section divider"></div>
+    <!-- <img src="/images/logo.png" class="ui centered mini image"> -->
+    <div class="ui horizontal inverted small divided link list">
+      <a class="item" href="" target="_blank">Coding &amp; &copy;Coding 版权所有</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>
