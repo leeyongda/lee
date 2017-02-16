@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<!--[if IE 6]><html class="ie lt-ie8"><![endif]-->
+<!--[if IE 7]><html class="ie lt-ie8"><![endif]-->
+<!--[if IE 8]><html class="ie ie8"><![endif]-->
+<!--[if IE 9]><html class="ie ie9"><![endif]-->
+<!--[if !IE]><!-->
+<html> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <script type="text/javascript">window.NREUM || (NREUM = {});
+    NREUM.info = {
+        "beacon": "bam.nr-data.net",
+        "errorBeacon": "bam.nr-data.net",
+        "licenseKey": "1255494d3a",
+        "applicationID": "15702971",
+        "transactionName": "e1daR0JWVV9RER9ZWkxdRxxDUVZE",
+        "queueTime": 4,
+        "applicationTime": 48,
+        "agent": ""
+    }</script>
+    <script type="text/javascript">window.NREUM || (NREUM = {}), __nr_require = function (e, t, n) {
+        function r(n) {
+            if (!t[n]) {
+                var o = t[n] = {exports: {}};
+                e[n][0].call(o.exports, function (t) {
+                    var o = e[n][1][t];
+                    return r(o || t)
+                }, o, o.exports)
+            }
+            return t[n].exports
+        }
+
+        if ("function" == typeof __nr_require)return __nr_require;
+        for (var o = 0; o < n.length; o++)r(n[o]);
+        return r
+    }({
+        1: [function (e, t, n) {
+            function r() {
+            }
+
+            function o(e, t, n) {
+                return function () {
+                    return i(e, [(new Date).getTime()].concat(u(arguments)), t ? null : this, n), t ? void 0 : this
+                }
+            }
+
+            var i = e("handle"), a = e(2), u = e(3), c = e("ee").get("tracer"), f = NREUM;
+            "undefined" == typeof window.newrelic && (newrelic = f);
+            var s = ["setPageViewName", "setCustomAttribute", "setErrorHandler", "finished", "addToTrace", "inlineHit", "addRelease"], l = "api-", p = l + "ixn-";
+            a(s, function (e, t) {
+                f[t] = o(l + t, !0, "api")
+            }), f.addPageAction = o(l + "addPageAction", !0), f.setCurrentRouteName = o(l + "routeName", !0), t.exports = newrelic, f.interaction = function () {
+                return (new r).get()
+            };
+            var d = r.prototype = {
+                createTracer: function (e, t) {
+                    var n = {}, r = this, o = "function" == typeof t;
+                    return i(p + "tracer", [Date.now(), e, n], r), function () {
+                        if (c.emit((o ? "" : "no-") + "fn-start", [Date.now(), r, o], n), o)try {
+                            return t.apply(this, arguments)
+                        } finally {
+                            c.emit("fn-end", [Date.now()], n)
+                        }
+                    }
+                }
+            };
+            a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","), function (e, t) {
+                d[t] = o(p + t)
+            }), newrelic.noticeError = function (e) {
+                "string" == typeof e && (e = new Error(e)), i("err", [e, (new Date).getTime()])
+            }
+        }, {}], 2: [function (e, t, n) {
+            function r(e, t) {
+                var n = [], r = "", i = 0;
+                for (r in e)o.call(e, r) && (n[i] = t(r, e[r]), i += 1);
+                return n
+            }
+
+            var o = Object.prototype.hasOwnProperty;
+            t.exports = r
+        }, {}], 3: [function (e, t, n) {
+            function r(e, t, n) {
+                t || (t = 0), "undefined" == typeof n && (n = e ? e.length : 0);
+                for (var r = -1, o = n - t || 0, i = Array(o < 0 ? 0 : o); ++r < o;)i[r] = e[t + r];
+                return i
+            }
+
+            t.exports = r
+        }, {}], ee: [function (e, t, n) {
+            function r() {
+            }
+
+            function o(e) {
+                function t(e) {
+                    return e && e instanceof r ? e : e ? c(e, u, i) : i()
+                }
+
+                function n(n, r, o) {
+                    if (!p.aborted) {
+                        e && e(n, r, o);
+                        for (var i = t(o), a = v(n), u = a.length, c = 0; c < u; c++)a[c].apply(i, r);
+                        var f = s[w[n]];
+                        return f && f.push([y, n, r, i]), i
+                    }
+                }
+
+                function d(e, t) {
+                    b[e] = v(e).concat(t)
+                }
+
+                function v(e) {
+                    return b[e] || []
+                }
+
+                function g(e) {
+                    return l[e] = l[e] || o(n)
+                }
+
+                function m(e, t) {
+                    f(e, function (e, n) {
+                        t = t || "feature", w[n] = t, t in s || (s[t] = [])
+                    })
+                }
+
+                var b = {}, w = {}, y = {
+                    on: d,
+                    emit: n,
+                    get: g,
+                    listeners: v,
+                    context: t,
+                    buffer: m,
+                    abort: a,
+                    aborted: !1
+                };
+                return y
+            }
+
+            function i() {
+                return new r
+            }
+
+            function a() {
+                (s.api || s.feature) && (p.aborted = !0, s = p.backlog = {})
+            }
+
+            var u = "nr@context", c = e("gos"), f = e(2), s = {}, l = {}, p = t.exports = o();
+            p.backlog = s
+        }, {}], gos: [function (e, t, n) {
+            function r(e, t, n) {
+                if (o.call(e, t))return e[t];
+                var r = n();
+                if (Object.defineProperty && Object.keys)try {
+                    return Object.defineProperty(e, t, {value: r, writable: !0, enumerable: !1}), r
+                } catch (i) {
+                }
+                return e[t] = r, r
+            }
+
+            var o = Object.prototype.hasOwnProperty;
+            t.exports = r
+        }, {}], handle: [function (e, t, n) {
+            function r(e, t, n, r) {
+                o.buffer([e], r), o.emit(e, t, n)
+            }
+
+            var o = e("ee").get("handle");
+            t.exports = r, r.ee = o
+        }, {}], id: [function (e, t, n) {
+            function r(e) {
+                var t = typeof e;
+                return !e || "object" !== t && "function" !== t ? -1 : e === window ? 0 : a(e, i, function () {
+                    return o++
+                })
+            }
+
+            var o = 1, i = "nr@id", a = e("gos");
+            t.exports = r
+        }, {}], loader: [function (e, t, n) {
+            function r() {
+                if (!h++) {
+                    var e = y.info = NREUM.info, t = l.getElementsByTagName("script")[0];
+                    if (setTimeout(f.abort, 3e4), !(e && e.licenseKey && e.applicationID && t))return f.abort();
+                    c(b, function (t, n) {
+                        e[t] || (e[t] = n)
+                    }), u("mark", ["onload", a()], null, "api");
+                    var n = l.createElement("script");
+                    n.src = "https://" + e.agent, t.parentNode.insertBefore(n, t)
+                }
+            }
+
+            function o() {
+                "complete" === l.readyState && i()
+            }
+
+            function i() {
+                u("mark", ["domContent", a()], null, "api")
+            }
+
+            function a() {
+                return (new Date).getTime()
+            }
+
+            var u = e("handle"), c = e(2), f = e("ee"), s = window, l = s.document, p = "addEventListener", d = "attachEvent", v = s.XMLHttpRequest, g = v && v.prototype;
+            NREUM.o = {
+                ST: setTimeout,
+                CT: clearTimeout,
+                XHR: v,
+                REQ: s.Request,
+                EV: s.Event,
+                PR: s.Promise,
+                MO: s.MutationObserver
+            }, e(1);
+            var m = "" + location, b = {
+                beacon: "bam.nr-data.net",
+                errorBeacon: "bam.nr-data.net",
+                agent: "js-agent.newrelic.com/nr-1016.min.js"
+            }, w = v && g && g[p] && !/CriOS/.test(navigator.userAgent), y = t.exports = {
+                offset: a(),
+                origin: m,
+                features: {},
+                xhrWrappable: w
+            };
+            l[p] ? (l[p]("DOMContentLoaded", i, !1), s[p]("load", r, !1)) : (l[d]("onreadystatechange", o), s[d]("onload", r)), u("mark", ["firstbyte", a()], null, "api");
+            var h = 0
+        }, {}]
+    }, {}, ["loader"]);</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta name="description"
+          content="  /1/ 有一种开学综合症，大概叫「恋家」。 走前半月。我赖在家里如磐石，能不出就不出门；走前三天。我喝着外婆熬的汤，嘴边似涩涩…… 离家前两日，返校后一周。似成了最难熬的日子。 我舍不得。我不想走。 一直在想。恋家的人，到底“恋”什么？ 刚读小学，独怕返校。车一来，我便溜烟逃开。尽往墙角或桌底钻。每每呢，又被妈妈一把拎起，丢入厢中。 高中时，我对校车的惧，一如离家的惶...">
+    <meta property="wb:webmaster" content="294ec9de89e7fadb"/>
+    <meta property="qc:admins" content="104102651453316562112116375"/>
+    <meta property="qc:admins" content="11635613706305617"/>
+    <meta property="qc:admins" content="1163561616621163056375"/>
+    <meta name="google-site-verification" content="cV4-qkUJZR6gmFeajx_UyPe47GW9vY6cnCrYtCHYNh4"/>
+    <meta name="google-site-verification" content="HF7lfF8YEGs1qtCE-kPml8Z469e2RHhGajy6JPVy5XI"/>
+    <meta http-equiv="mobile-agent" content="format=html5; url=http://www.jianshu.com/p/43e9fb15a8e7">
+    <!--  Meta for Smart App Banner -->
+    <meta name="apple-itunes-app" content="app-id=888237539, app-argument=jianshu://notes/9220357">
+    <!-- End -->
+
+    <!--  Meta for Twitter Card -->
+    <meta content="summary" property="twitter:card">
+    <meta content="@jianshucom" property="twitter:site">
+    <meta content="那些恋家的人，到底在“恋”什么？" property="twitter:title">
+    <meta content="            /1/ 有一种开学综合症，大概叫「恋家」。 走前半月。我赖在家里如磐石，能不出就不出门；走前三天。我喝着外婆熬的汤，嘴边似涩涩…… 离家前两日，返校后一周。似成了最难熬的日子。 我舍不得。我不想走。 一直在想。恋家的人，到底“恋”什么？ 刚读小学，独怕返校。车一来，我便溜烟逃开。尽往墙角或桌底钻。每每呢，又被妈妈一把拎起，丢入厢中。 高中时，我对校车的惧，一如离家的惶忧。我的眼，老是被泪糊住。周遭似黑黑的。只余我一人，和车轮空转。 初入大学。我没半点长进，依然怂。回校前两日，三点半就自然醒。 恋家成瘾，是我害怕独立。害怕未知。害怕抓不住时间而父母渐老去。     ..."
+          property="twitter:description">
+    <meta content="http://www.jianshu.com/p/43e9fb15a8e7" property="twitter:url">
+    <!-- End -->
+
+    <!--  Meta for OpenGraph -->
+    <meta property="fb:app_id" content="865829053512461">
+    <meta property="og:site_name" content="简书">
+    <meta property="og:title" content="那些恋家的人，到底在“恋”什么？">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="http://www.jianshu.com/p/43e9fb15a8e7">
+    <meta property="og:description"
+          content="            /1/ 有一种开学综合症，大概叫「恋家」。 走前半月。我赖在家里如磐石，能不出就不出门；走前三天。我喝着外婆熬的汤，嘴边似涩涩…… 离家前两日，返校后一周。似成了最难熬的...">
+    <!-- End -->
+
+    <!--  Meta for Facebook Applinks -->
+    <meta property="al:ios:url" content="jianshu://notes/9220357"/>
+    <meta property="al:ios:app_store_id" content="888237539"/>
+    <meta property="al:ios:app_name" content="简书"/>
+
+    <meta property="al:android:url" content="jianshu://notes/9220357"/>
+    <meta property="al:android:package" content="com.jianshu.haruki"/>
+    <meta property="al:android:app_name" content="简书"/>
+    <!-- End -->
+
+    <title>那些恋家的人，到底在“恋”什么？ - 简书</title>
+    <meta name="csrf-param" content="authenticity_token"/>
+    <meta name="csrf-token"
+          content="t0/Aii9LpHAeDsSgArCzcSMygPk5CM2iih3Jl5/UVfAl5EkRTFvGGPpel1tbLJeHG3SWIVq0vxYMv/lt5QDZVA=="/>
+    <!--[if lte IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+{#    <link rel="stylesheet" media="all" href="http://cdn-qn0.jianshu.io/assets/web-c6e7df8d7de93019b044.css"/>#}
+
+<link rel="stylesheet" media="all" href="{{ static_url('css/web-ea.css') }}"/>
+<link rel="stylesheet" media="all" href="{{ static_url('css/entry-ea.css') }}"/>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if IE 8]><link rel="stylesheet" media="all" href="http://cdn-qn0.jianshu.io/assets/scaffolding/for_ie-7f1c477ffedc13c11315103e8787dc6c.css" />
+    <![endif]-->
+    <!--[if lt IE 9]><link rel="stylesheet" media="all" href="http://cdn-qn0.jianshu.io/assets/scaffolding/for_ie-7f1c477ffedc13c11315103e8787dc6c.css" />
+    <![endif]-->
+    <link href="http://baijii-common.b0.upaiyun.com/icons/favicon.ico" rel="icon">
+    <link rel="apple-touch-icon-precomposed" href="http://cdn-qn0.jianshu.io/apple-touch-icons/57.png" sizes="57x57"/>
+    <link rel="apple-touch-icon-precomposed" href="http://cdn-qn0.jianshu.io/apple-touch-icons/72.png" sizes="72x72"/>
+    <link rel="apple-touch-icon-precomposed" href="http://cdn-qn0.jianshu.io/apple-touch-icons/76.png" sizes="76x76"/>
+    <link rel="apple-touch-icon-precomposed" href="http://cdn-qn0.jianshu.io/apple-touch-icons/114.png"
+          sizes="114x114"/>
+    <link rel="apple-touch-icon-precomposed" href="http://cdn-qn0.jianshu.io/apple-touch-icons/120.png"
+          sizes="120x120"/>
+    <link rel="apple-touch-icon-precomposed" href="http://cdn-qn0.jianshu.io/apple-touch-icons/152.png"
+          sizes="152x152"/>
+</head>
+
+<body lang="zh-CN" class="reader-black-font">
+<!-- 全局顶部导航栏 -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="width-limit">
+        <!-- 左上方 Logo -->
+        <a class="logo" href="/"><img
+                src="http://cdn-qn0.jianshu.io/assets/web/logo-58fd04f6f0de908401aa561cda6a0688.png" alt="Logo"/></a>
+
+        <!-- 右上角 -->
+        <!-- 未登录显示登录/注册/写文章 -->
+        <a class="btn write-btn" target="_blank" href="/writer#/">
+            <i class="iconfont ic-write"></i>写文章
+        </a> <a class="btn sign-up" href="/sign_up">注册</a>
+        <a class="btn log-in" href="/sign_in">登录</a>
+
+        <!-- 如果用户登录，显示下拉菜单 -->
+
+        <div id="view-mode-ctrl">
+        </div>
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu"
+                        aria-expanded="false">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="nav navbar-nav">
+                    <li class="">
+                        <a href="/">
+                            <span class="menu-text">首页</span><i class="iconfont ic-navigation-discover menu-icon"></i>
+                        </a></li>
+                    <li class="">
+                        <a class="app-download-btn" href="/apps"><span class="menu-text">下载App</span><i
+                                class="iconfont ic-navigation-download menu-icon"></i></a>
+                    </li>
+                    <li class="search">
+                        <form target="_blank" action="/search" accept-charset="UTF-8" method="get"><input name="utf8"
+                                                                                                          type="hidden"
+                                                                                                          value="&#x2713;"/>
+                            <input type="text" name="q" id="q" value="" placeholder="搜索" class="search-input"/>
+                            <a class="search-btn" href="javascript:void(null)"><i class="iconfont ic-search"></i></a>
+                            <!-- <div id="navbar-trending-search"></div> -->
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="note">
+    <div class="post">
+        <div class="article">
+            <h1 class="title">那些恋家的人，到底在“恋”什么？</h1>
+
+            <!-- 作者区域 -->
+            <div class="author">
+                <a class="avatar" href="/u/ebf766ac0e21">
+                    <img src="http://upload.jianshu.io/users/upload_avatars/2743201/4fc16d8762f9?imageMogr2/auto-orient/strip|imageView2/1/w/144/h/144"
+                         alt="144"/>
+                </a>
+                <div class="info">
+                    <span class="tag">作者</span>
+                    <span class="name"><a href="/u/ebf766ac0e21">小灯泡儿</a></span>
+                    <!-- 关注用户按钮 -->
+                    <div data-author-follow-button></div>
+                    <!-- 文章数据信息 -->
+                    <div class="meta">
+                        <span class="publish-time">2017.02.16 08:59</span>
+                        <span class="wordage">字数 1586</span>
+                    </div>
+                </div>
+                <!-- 如果是当前作者，加入编辑按钮 -->
+            </div>
+            <!-- -->
+
+            <!-- 文章内容 -->
+            <div class="show-content">
+                <p> Hello Hello Hello</p>
+            </div>
+            <!--  -->
+
+            <div class="show-foot">
+                <a class="notebook" href="/nb/5673488">
+                    <i class="iconfont ic-search-notebook"></i> <span>觅知己</span>
+                </a>
+                <div class="copyright" data-toggle="tooltip" data-html="true"
+                     data-original-title="转载请联系作者获得授权，并标注“简书作者”。">
+                    © 著作权归作者所有
+                </div>
+                <div class="modal-wrap" data-report-note>
+                    <a id="report-modal">举报文章</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 文章底部作者信息 -->
+        <div class="follow-detail">
+            <div class="info">
+                <a class="avatar" href="/u/ebf766ac0e21">
+                    <img src="http://upload.jianshu.io/users/upload_avatars/2743201/4fc16d8762f9?imageMogr2/auto-orient/strip|imageView2/1/w/144/h/144"
+                         alt="144"/>
+                </a>
+                <div data-author-follow-button></div>
+                <a class="title" href="/u/ebf766ac0e21">小灯泡儿</a>
+            </div>
+            <div class="signature">
+              <span>微信原创公众号名：大樱桃与小灯泡（iamcherry2016）
+
+少女脸汉子心的19+萌妹
+面...</span>
+            </div>
+        </div>
+
+        <div class="support-author"></div>
+
+
+        <div id="vue_comment"></div>
+    </div>
+
+    <div class="side-tool">
+        <ul>
+            <li data-placement="left" data-toggle="tooltip" data-container="body" data-original-title="回到顶部">
+                <a href="#"><i class="iconfont ic-backtop"></i></a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="js-included-collections"></div>
+
+<script type="application/json" data-name="page-data">{
+    "user_signed_in": false,
+    "locale": "zh-CN",
+    "os": "windows",
+    "read_mode": "day",
+    "read_font": "font2",
+    "note_show": {
+        "is_author": false,
+        "is_following_author": false,
+        "is_liked_note": false,
+        "uuid": "cb6265e6-4806-4524-8fbe-bbd0a12a3e03"
+    },
+    "note": {
+        "id": 9220357,
+        "slug": "43e9fb15a8e7",
+        "user_id": 2743201,
+        "notebook_id": 5673488,
+        "commentable": true,
+        "likes_count": 280,
+        "views_count": 6172,
+        "public_wordage": 1586,
+        "comments_count": 80,
+        "author": {
+            "total_wordage": 49616,
+            "followers_count": 793,
+            "total_likes_count": 4129
+        }
+    }
+}</script>
+
+<script src="http://cdn-qn0.jianshu.io/assets/babel-polyfill-c6e7df8d7de93019b044.js"></script>
+{#<script src="http://cdn-qn0.jianshu.io/assets/web-base-c6e7df8d7de93019b044.js"></script>#}
+{#<script src="http://cdn-qn0.jianshu.io/assets/web-c6e7df8d7de93019b044.js"></script>#}
+{##}
+{#<script src="http://cdn-qn0.jianshu.io/assets/web/pages/notes/show/entry-c6e7df8d7de93019b044.js"></script>#}
+<script src="{{ static_url('js/web-base.js') }}"></script>
+<script src="{{ static_url('js/web.js') }}"></script>
+<script src="{{ static_url('js/page.js') }}"></script>
+
+
+</body>
+</html>

@@ -8,22 +8,19 @@
 # admin_url = _site_info['admin']['url']
 
 urls = [
-    (r"/", 'Index'),
-    (r"/index", 'Index'),
-
-    (r"/admin/blog/cp", 'cp_admin'),
-    (r"/admin/blog/add_cp", 'add_cp_admin'),
-    (r"/admin/blog/Update_Student_info", 'Update_Student_info'),
-    (r"/admin/blog/Del_Student_info", 'Del_Student_info'),
+    # (r"/", 'Index'),
+    # (r"/index", 'Index'),
     (r"/jwc", 'jwc'),
     (r"/dotushu", 'tushu_query'),
-    (r"/test", 'cp'),
-    (r"/page", 'Article_info'),
-    (r"/data", "get_more"),
+    (r"/test", 'jtest'),
+    (r"/p/(.*?)", 'article_info'),
+    # (r"/", 'page'),
+    # (r"/?page=(.*?)", "get_page"),
+    # (r"/search", "search"),
+
     (r"/admin/login", 'Login'),
     (r'/admin/logout', 'Logout'),
     (r"/admin/blog", "Admin"),
-
 
     (r"/admin/blog/get_Article", "Article_list"),
     (r"/admin/blog/Add_Article", 'AddArticle'),
@@ -40,13 +37,17 @@ urls = [
     (r"/admin/blog/tags", 'tag'),
     (r"/admin/blog/del_tag", "del_tag"),
     (r"/admin/blog/add_tag", "add_tag"),
-    (r"/test", "test"),
+
     (r"/del_tag", "del_tag"),
     (r"/add_tag", "add_tag"),
     (r"/update_tag", "update_tag"),
     # (r"/admin/blog/files/", 'getmage')
 
-    (r"/admin/blog/files/(?:.*?)", "get_image")
-
+    (r"/admin/blog/files/(?:.*?)", "get_image"),
+    (r"/cptest", 'cp'),
+    (r"/admin/blog/cp", 'cp_admin'),
+    (r"/admin/blog/add_cp", 'add_cp_admin'),
+    (r"/admin/blog/Update_Student_info", 'Update_Student_info'),
+    (r"/admin/blog/Del_Student_info", 'Del_Student_info'),
 
 ]

@@ -1,115 +1,119 @@
 {% extends "admin.html" %}
 
-  {%block css%}
-    <link rel="stylesheet" href="{{ static_url("css/editormd.min.css")}} "/>
-<script src="{{ static_url("js/editormd.min.js")}}"> </script>
-<script src="{{ static_url("js/modal.js")}}"> </script>
+{% block css %}
+<link rel="stylesheet" href="{{ static_url("css/editormd.min.css") }} "/>
+<script src="{{ static_url("js/editormd.min.js") }}"></script>
+<script src="{{ static_url("js/modal.js") }}"></script>
 <!-- <script src="{{ static_url("js/marked.js")}}"> </script> -->
 <!-- <script src="{{ static_url("js/prettify.min.js")}}"> </script> -->
 <script type="text/javascript">
-function formSubmit(){
-    // $("#puplishd").val("1");//赋
-    var strText= document.getElementById("title").value;
-    var stats = document.getElementById("puplishd").value;
-    // alert (stats);
+    function formSubmit() {
+        // $("#puplishd").val("1");//赋
+        var strText = document.getElementById("title").value;
+        var stats = document.getElementById("puplishd").value;
+        // alert (stats);
 
-        if(strText=="" || strText==null)
-        {
+        if (strText == "" || strText == null) {
             alert("文章标题不能为空");
             return 0;
         }
-    else{
-    document.getElementById("form1").submit();}
-};
+        else {
+            document.getElementById("form1").submit();
+        }
+    };
 
 
-// #保存
-function formSubmit1(){
-  var aa = $("#puplishd").val("1");//赋
-  // alert(aa);
-    var strText= document.getElementById("title").value;
-      var stats = document.getElementById("puplishd").value;
-      // alert (parseInt(stats));
-        if(strText=="" || strText==null)
-        {
+    // #保存
+    function formSubmit1() {
+        var aa = $("#puplishd").val("1");//赋
+        // alert(aa);
+        var strText = document.getElementById("title").value;
+        var stats = document.getElementById("puplishd").value;
+        // alert (parseInt(stats));
+        if (strText == "" || strText == null) {
             alert("文章标题不能为空");
             return 1;
         }
-    else{
-    document.getElementById("form1").submit();}
-};
+        else {
+            document.getElementById("form1").submit();
+        }
+    }
+    ;
 
 
 </script>
 
 <script type="text/javascript">
-      $(function() {
+    $(function () {
         var editor = editormd("editormd", {
-            path : "{{static_url("lib/")}}",
-             width   : "100%",
-             height  : 640,
-             previewTheme : "dark",
-             syncScrolling : "single",
-              imageUpload: true,
-              emoji : true,
-             imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
-             imageUploadURL : "/admin/blog/uploadimage",
-             saveHTMLToTextarea : true,
+            path: "{{static_url("lib/")}}",
+            width: "100%",
+            height: 640,
+            previewTheme: "dark",
+            syncScrolling: "single",
+            imageUpload: true,
+            emoji: true,
+            imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+            imageUploadURL: "/admin/blog/uploadimage",
+            saveHTMLToTextarea: true
 
         });
 
     });
 </script>
 
-{%end%}
+{% end %}
 {% block title %}
-  <h1>
+<h1>
     添加新文章
     <small>添加</small>
-  </h1>
+</h1>
 {% end %}
 {% block content %}
 
 
-    <div class="ui vertical segment">
+<div class="ui vertical segment">
     <div class="ui container segment">
 
-          <form id="form1" action="/admin/blog/Editor" method="post">
+        <form id="form1" action="/admin/blog/Editor" method="post">
             {% module xsrf_form_html() %}
-  <div class="ui form">
-      <div class="field">
-        <label>文章标题</label>
-        <input type='text' id = "title" name="title" placeholder="请输入文章标题" />
-        <!-- <input type="hidden" id="puplishd" name="publishd" value="0"> -->
-      </div>
-        <div class="field">
-          <label>文章分类</label>
-<select name="gender" class="ui dropdown" id="select">
-  {% for tag in tags %}
-  <option value="{{tag['name']}}" >{{tag['name']}}</option>
-  {%end%}
-</select>
-</div>
-<div class="ui fluid   submit button" onclick="formSubmit1();">保存</div>
-<br>
-<br>
-<div class="ui fluid   submit button" onclick="formSubmit();">发布</div>
+            <div class="ui form">
+                <div class="field">
+                    <label>文章标题</label>
+                    <input type='text' id="title" name="title" placeholder="请输入文章标题"/>
+                    <input type="hidden" id="puplishd" name="publishd" value="0">
+                </div>
+                     <div class="field">
+                    <label>文章摘要</label>
+                    <input type='text' id="abstract" name="abstract" placeholder="请输入文章摘要"/>
+                </div>
+                <div class="field">
+                    <label>文章分类</label>
+                    <select name="gender" class="ui dropdown" id="select">
+                        {% for tag in tags %}
+                        <option value="{{ tag['name'] }}">{{ tag['name'] }}</option>
+                        {% end %}
+                    </select>
+                </div>
+                <div class="ui fluid   submit button" onclick="formSubmit1();">保存</div>
+                <br>
+                <br>
+                <div class="ui fluid   submit button" onclick="formSubmit();">发布</div>
 
 
+                <div class="field">
+                    <label>文章编辑</label>
+                </div>
 
-<div class="field">
-  <label>文章编辑</label>
-</div>
+            </div>
 
-</div>
+            <div id="editormd">
+                <textarea style="display:none;">## Hello Python !</textarea>
 
-<div id="editormd">
-    <textarea style="display:none;" >## Hello Python !</textarea>
-
-</div>
-
-</div>
-</div>
+            </div>
 </form>
+    </div>
+</div>
 
-{%end%}
+
+{% end %}

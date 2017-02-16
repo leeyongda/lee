@@ -53,10 +53,16 @@ def sel_sort(req, i):
     sel_sort(req, i)
 
 
-def sel_sort_rec(req, i):
-    for i in range（len(seq) - 1, 0, - 1):
-        max_j=i
-        for j in range(i):
-            if req[j] > req[max_j]:
-                max_j=j
-        req[i], req[max_j]=req[max_j], req[i]
+# def sel_sort_rec(req, i):
+#     for i in range（len(seq) - 1, 0, - 1):
+#         max_j=i
+#         for j in range(i):
+#             if req[j] > req[max_j]:
+#                 max_j=j
+#         req[i], req[max_j]=req[max_j], req[i]
+
+
+import bcrypt
+s = 'aa'
+hash = bcrypt.hashpw(s, bcrypt.gensalt())
+print hash
