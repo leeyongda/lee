@@ -16,13 +16,14 @@ urls = [
     (r"/p/(.*?)", 'article_info'),
     # (r"/", 'page'),
     # (r"/?page=(.*?)", "get_page"),
-    # (r"/search", "search"),
+    (r"/search", "search"),
 
     (r"/admin/login", 'Login'),
     (r'/admin/logout', 'Logout'),
     (r"/admin/blog", "Admin"),
 
     (r"/admin/blog/get_Article", "Article_list"),
+    (r"/admin/blog/get_Article/(.*?)", "Article_list"),
     (r"/admin/blog/Add_Article", 'AddArticle'),
     (r"/admin/blog/Edit_Article", 'EditArticle'),
     (r"/admin/blog/update_Article", 'update_Article'),

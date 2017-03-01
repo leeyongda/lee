@@ -9,7 +9,7 @@ import requests
 from email.mime.text import MIMEText
 
 
-class EmailPush:
+class EmailPush(object):
 
     def __init__(self, name, password, mail_add):
 

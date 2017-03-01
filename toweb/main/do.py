@@ -51,14 +51,18 @@ def do_get_more(last, limit):
     return db.Article.find().sort([("date_time", -1)])[int(last):int(limit)]
 
 
-def do_get_article_list():
-    return db.Article.find()
+def do_get_article_list(page):
+    return db.Article.find().sort([("date_time", -1)]).skip((page - 1) * 5).limit(5)
 
 
 def do_get_article_info(uid):
     return db.Article.find_one({'uuid': uid})
 
 '''title标题,tag分类,content内容,puplishd状态(0,1)'''
+
+
+def do_count_article():
+    return db.Article.find().count()
 
 
 def write_article(title, abstract ,tag, content, puplishd, now,):

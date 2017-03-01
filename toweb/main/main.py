@@ -52,7 +52,7 @@ class Index(res):  # 文章首页
 class jtest(res):
     def get(self):
         blog_all = do_get_article()
-        self.render("jianshu.html",blog_all=blog_all)
+        self.render("jianshu.html", blog_all=blog_all)
 
 
 class page(res):
@@ -73,8 +73,8 @@ class search(res):
 
 
 class article_info(res):  # 文章详情
-    def get(self,url=None):
-        uid = self.get_argument("uid",'')
+    def get(self, url=None):
+        uid = self.get_argument("uid", '')
         print uid
         blog = do_get_article_info(uid)
         self.render("arcticle_page.html", blog=blog)
@@ -126,12 +126,24 @@ class Admin(BaseHandler):  # 后台管理界面
 
 
 class Article_list(BaseHandler):  # 增加文章 详情列表，状态
-
     @authenticated
-    def get(self):
-        blog = do_get_article_list()
+    def get(self,page=1):
+        sugNum = do_count_article()
+        try:
+            page = int(self.get_argument("page"))
+        except:
+            page = 1
 
-        self.render('admin_article_list.html', blog_list=blog)
+        blog = do_get_article_list(page)
+        if sugNum % 5 == 0:
+            pageNum = sugNum / 5
+        else:
+            pageNum = sugNum / 5 + 1
+        self.render('admin_article_list.html',page=page, blog_list=blog, count=pageNum,nums = sugNum)
+
+
+
+
 
 
 class Del_Article(BaseHandler):  # 删除文章
