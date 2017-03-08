@@ -36,20 +36,13 @@ class BaseHandler(res):  # 基类
 
     def get_current_user(self):
         username = self.get_secure_cookie("username")
-        # password = self.get_secure_cookie('password')
         if not username:
             return None
         return check_user_pass(username)
 
 
-class Index(res):  # 文章首页
 
-    def get(self):
-        blog = do_get_article()
-        self.render('test.html', blog_list=blog, last_id=2)
-
-
-class jtest(res):
+class Index(res):
     def get(self):
         blog_all = do_get_article()
         self.render("jianshu.html", blog_all=blog_all)

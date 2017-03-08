@@ -8,14 +8,14 @@
 # admin_url = _site_info['admin']['url']
 
 urls = [
-    # (r"/", 'Index'),
+    (r"/", 'Index'),
     # (r"/index", 'Index'),
     (r"/jwc", 'jwc'),
     (r"/dotushu", 'tushu_query'),
     (r"/test", 'jtest'),
     (r"/p/(.*?)", 'article_info'),
-    # (r"/", 'page'),
-    # (r"/?page=(.*?)", "get_page"),
+    (r"/", 'page'),
+    (r"/?page=(.*?)", "get_page"),
     (r"/search", "search"),
 
     (r"/admin/login", 'Login'),

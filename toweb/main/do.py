@@ -43,7 +43,7 @@ def do_del_student_info(uid):
 
 
 def do_get_article():
-    return db.Article.find().sort([("date_time", -1)])[:2]
+    return db.Article.find().sort([("date_time", -1)])[:5]
 
 
 def do_get_more(last, limit):
